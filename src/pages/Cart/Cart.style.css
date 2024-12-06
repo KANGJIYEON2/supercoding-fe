@@ -1,0 +1,57 @@
+.cart-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cart-logo {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  height: 30px;
+  cursor: pointer;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.progress-steps {
+  display: flex;
+  gap: 20px;
+}
+
+.step {
+  color: #999;
+  font-size: 14px;
+}
+
+.step.active {
+  color: #0073e9;
+}
+
+.tab-container {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.tab {
+  padding: 15px 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.tab.active {
+  color: #0073e9;
+  border-bottom: 2px solid #0073e9;
+}
+
+/* 나머지 스타일은 이전에 작성한 CSS와 동일 */
