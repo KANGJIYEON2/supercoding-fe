@@ -19,32 +19,34 @@ const CartPage = () => {
           onClick={() => navigate("/")}
         />
       </div>
-      <div className="cart-header">
-        <button className="back-button" onClick={() => navigate(-1)}>
-          ＜ 장바구니
-        </button>
-        <div className="progress-steps">
-          <span className="step">01 묶음선택</span>
-          <span className="step active">02 장바구니</span>
-          <span className="step">03 주문/결제</span>
-          <span className="step">04 주문완료</span>
+      <div className="cart-container">
+        <div className="cart-header">
+          <button className="back-button" onClick={() => navigate(-1)}>
+            ＜ 장바구니
+          </button>
+          <div className="progress-steps">
+            <span className="step">01 묶음선택</span>
+            <span className="step active">02 장바구니</span>
+            <span className="step">03 주문/결제</span>
+            <span className="step">04 주문완료</span>
+          </div>
         </div>
+        <div className="tab-container">
+          <button
+            className={`tab ${activeTab === "일반구매" ? "active" : ""}`}
+            onClick={() => setActiveTab("일반구매")}
+          >
+            일반구매(0)
+          </button>
+          <button
+            className={`tab ${activeTab === "정기배송" ? "active" : ""}`}
+            onClick={() => setActiveTab("정기배송")}
+          >
+            정기배송(0)
+          </button>
+        </div>
+        {hasItems ? <CartList /> : <EmptyCart />}
       </div>
-      <div className="tab-container">
-        <button
-          className={`tab ${activeTab === "일반구매" ? "active" : ""}`}
-          onClick={() => setActiveTab("일반구매")}
-        >
-          일반구매(0)
-        </button>
-        <button
-          className={`tab ${activeTab === "정기배송" ? "active" : ""}`}
-          onClick={() => setActiveTab("정기배송")}
-        >
-          정기배송(0)
-        </button>
-      </div>
-      {hasItems ? <CartList /> : <EmptyCart />}
     </div>
   );
 };
