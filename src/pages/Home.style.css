@@ -1,0 +1,162 @@
+/* 전체 페이지 스타일 */
+.home-page {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 메인 컨텐츠 */
+.main-content {
+  width: 100%;
+  max-width: 1200px; /* 페이지 중앙 정렬 */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 메인 배너 */
+.main-banner {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.main-banner-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 오늘의 발견 섹션 */
+.today-discovery {
+  margin-bottom: 40px;
+}
+
+.discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 세 개씩 표시 */
+  gap: 20px;
+}
+
+.discovery-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.discovery-card:hover {
+  border-color: #0078ff;
+  transform: translateY(-5px);
+}
+
+.discovery-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.discovery-info {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discovery-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.navigate-button {
+  background: none;
+  border: none;
+  color: #0078ff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navigate-button:hover {
+  color: #005bb5;
+}
+
+/* 섹션 공통 스타일 */
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* 카테고리별 섹션 */
+.category-section {
+  margin-bottom: 40px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-header h2 {
+  font-size: 1.3rem;
+}
+
+.category-link {
+  font-size: 0.9rem;
+  color: #0078ff;
+  text-decoration: none;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
+
+.hot-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.keyword {
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+}
+
+.keyword:hover {
+  color: #0078ff;
+}
+
+/* 반응형 */
+@media screen and (max-width: 1200px) {
+  .discovery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 두 개씩 표시 */
+  }
+
+  .main-banner-img {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .discovery-grid {
+    grid-template-columns: 1fr; /* 하나씩 표시 */
+  }
+
+  .main-banner-img {
+    height: 250px;
+  }
+}
