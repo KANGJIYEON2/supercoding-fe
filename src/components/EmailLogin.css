@@ -1,0 +1,190 @@
+.login-type {
+  display: flex;
+  flex: 1;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+/* 아이디(이메일) */
+.emaillogin-id-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  margin-bottom: 10px;
+  outline: none;
+}
+.emaillogin-id {
+  width: 350px;
+  height: 50px;
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  font-weight: bold;
+  color: gray;
+  background-color: #fff;
+  background-image: url("/public/Image/email-icon.png"), 
+  url("/public/Image/close.png"); /* 이메일 아이콘 경로 */
+  background-size: 20px, 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat, no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center, 320px center; /* 아이콘 위치 */
+  cursor: pointer;
+}
+.emaillogin-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: red;
+  font-size: 12px;
+  top: 110%; /* 입력 박스 바로 아래로 이동 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+/* 비밀번호 */
+.emaillogin-password-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  margin-top: 10px;
+  outline: none;
+}
+.emaillogin-password {
+  width: 350px;
+  height: 50px;
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  font-weight: bold;
+  color: gray;
+  background-color: #fff;
+  background-image: url("/public/Image/password-icon.png"),
+  url("/public/Image/show.png"); /* 비밀번호 아이콘 경로 */
+  background-size: 20px, 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat, no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center, 320px center; /* 아이콘 위치 */
+  cursor: pointer;
+}
+.emaillogin-password-error-message.error {
+  border-bottom: 1px solid red !important;
+  margin-top: 10px; /* 입력창과 메시지 간 간격 */
+}
+.emaillogin-password-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: red;
+  font-size: 12px;
+  top: 110%; /* 입력 박스 바로 아래로 이동 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+
+.emaillogin-id:focus,
+.emaillogin-password:focus {
+  border-bottom: 1px solid #0061f2;
+  outline: none;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 자동로그인 */
+.emaillogin-auto-login {
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  font-size: 12px;
+  margin-top: 35px;
+  align-items: center; /* 체크박스와 텍스트를 수직 가운데 정렬 */
+  gap: 8px; /* 체크박스와 텍스트 사이 간격 설정 */
+}
+/* 아이디비밀번호찾기 */
+.emaillogin-auto-login label:last-child {
+  margin-left: 140px; /* 두 번째 label과의 간격을 추가 */
+  color: #0061f2;
+  background-image: url("/public/Image/arrow.png"); /* 화살표 아이콘 경로 */
+  background-size: 6px; /* 아이콘 크기 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: right center; /* 아이콘을 오른쪽 중앙에 위치 */
+  padding-right: 8px; /* 아이콘과 텍스트 사이에 간격을 추가 */
+}
+
+/* 로그인 버튼 */
+.emaillogin-login-button {
+  margin: 0 auto;
+  width: 350px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #0061f2;
+  color: #e0e0e0;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: none;
+  margin-top: 10px;
+}
+
+/* 로그인 버튼 및 선 */
+.emaillogin-bar {
+  width: 350px;
+  height: 2px;
+  border-bottom: 1px solid gray; /* 하단에 선 추가 */
+  padding-bottom: 8px; /* 선과 콘텐츠 간격 */
+  margin: 10px auto;
+}
+
+/* 회원가입 버튼*/
+.email-signup-button {
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 350px;
+  height: 40px;
+  border: 1px solid gray;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.email-signup-button:hover {
+  background-color: #e0e0e0;
+}
+
+.business-link {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.customer {
+  font-weight: normal;
+  font-size: small;
+  color: gray;
+}
+
+/* 쿠팡비즈 간편가입*/
+.emaillogin-easy-signup-background {
+  margin-top: 15px;
+  font-size: small;
+  font-weight: bold;
+  display: inline-block; /* 요소를 인라인으로 유지 */
+  padding-right: 15px; /* 이미지와 텍스트 간격 조정 */
+  background-image: url("/public/Image/easysignuparrow.png"); /* 화살표 아이콘 경로 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: right center; /* 이미지를 텍스트 옆으로 정렬 */
+  background-size: contain; /* 이미지를 컨테이너 크기에 맞게 조절 */
+}
+/* 푸터영어 - Coupang Corp. All rights reserved. */
+.emaillogin-companyname-background {
+  margin-top: 80px;
+  display: inline-block; /* 요소를 인라인으로 유지 */
+  padding-left: 8px; /* 이미지와 텍스트 간격 조정 */
+  font-weight: normal;
+  font-size: x-small;
+  color: gray;
+  background-image: url("/public/Image/company\ name.png"); /* 화살표 아이콘 경로 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: left center; /* 이미지를 텍스트 옆으로 정렬 */
+  background-size: 8px; /* 이미지를 컨테이너 크기에 맞게 조절 */
+}
