@@ -1,0 +1,133 @@
+/* 섹션 공통 스타일 */
+.section {
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%; /* 전체 너비를 차지하도록 설정 */
+  max-width: 1200px; /* 최대 너비를 1200px로 설정 */
+  box-sizing: border-box;
+}
+
+/* 섹션 제목 */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: left;
+}
+
+/* 섹션 서브타이틀 */
+.section-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* 상품 목록 */
+.section-products {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+  height: 380px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: #0078ff;
+}
+
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  color: #d0021b;
+  font-weight: bold;
+}
+
+.product-original-price {
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: line-through;
+  margin-top: 5px;
+}
+
+/* React-slick styles */
+.slick-next,
+.slick-prev {
+  background-color: #0078ff;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slick-next:hover,
+.slick-prev:hover {
+  background-color: #005bb5;
+}
+
+/* 반응형 추가 */
+@media screen and (max-width: 1024px) {
+  .section-products {
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+  }
+
+  .product-card {
+    max-width: 300px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-products {
+    grid-template-columns: repeat(2, 1fr); /* 2열 */
+  }
+
+  .product-card {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-products {
+    grid-template-columns: 1fr; /* 1열 */
+  }
+
+  .product-card {
+    max-width: 100%; /* 모바일에서는 카드 너비를 100%로 */
+  }
+}

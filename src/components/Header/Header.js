@@ -42,10 +42,10 @@ const Header = () => {
             <div className="dropdown">
               <span className="dropdown-toggle">카테고리</span>
               <div className="dropdown-menu">
-                <Link to="/electronics">전자제품</Link>
-                <Link to="/fashion">패션</Link>
-                <Link to="/groceries">식료품</Link>
-                <Link to="/books">도서</Link>
+                <Link to="/products?category=전자제품">전자제품</Link>
+                <Link to="/products?category=패션">패션</Link>
+                <Link to="/products?category=식료품">식료품</Link>
+                <Link to="/products?category=도서">도서</Link>
               </div>
             </div>
           </div>
