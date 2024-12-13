@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Section from "../components/Section/Section";
 import SideNav from "../components/SideNav";
 import dummyData from "../dummyData";
@@ -6,6 +6,7 @@ import "./Home.style.css";
 import CategorySection from "../components/CategorySection/CategorySection";
 
 const HomePage = () => {
+  const [hovered, setHovered] = useState(null); // hover 상태를 관리
   const categories = [
     "가전디지털",
     "여성패션",
@@ -43,66 +44,74 @@ const HomePage = () => {
         </section>
 
         {/* 오늘의 발견 섹션 */}
-        <section className="today-discovery">
-          <h2 className="section-title">오늘의 발견</h2>
-          <p className="section-subtitle">
-            오늘 쿠팡이 엄선한 가장 HOT한 상품!
-          </p>
-          <div className="discovery-grid">
-            {dummyData.products.slice(0, 9).map((product, index) => (
-              <div className="discovery-card" key={index}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="discovery-img"
-                />
-                <div className="discovery-info">
-                  <h3 className="discovery-name">{product.name}</h3>
-                  <button
-                    className="navigate-button"
-                    onClick={() =>
-                      alert(`${product.name} 페이지로 이동합니다.`)
-                    }
-                  >
-                    &gt;
-                  </button>
+        <div className="body-section">
+          <section className="today-discovery">
+            <div className="main-title">
+              <h2 className="section-title">오늘의 발견 | </h2>
+              <p className="section-subtitle">
+                오늘 쿠팡이 엄선한 가장 HOT한 상품!
+              </p>
+            </div>
+
+            {/* 상품 그리드 */}
+            <div className="discovery-grid">
+              {dummyData.products.slice(0, 9).map((product, index) => (
+                <div
+                  className="discovery-card"
+                  key={index}
+                  onMouseEnter={() => setHovered(index)} // 호버 시 상태 변경
+                  onMouseLeave={() => setHovered(null)} // 호버 해제 시 초기화
+                >
+                  <div className="discovery-img-container">
+                    <h3 className="discovery-name">{product.name}</h3>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="discovery-img"
+                    />
+                  </div>
+                  <div className="discovery-buttons">
+                    {hovered === index ? (
+                      <button className="buy-button">구매하기</button>
+                    ) : (
+                      <button className="navigate-button">&gt;</button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
-        {/* 오늘의 쇼핑제안 섹션 */}
-        <Section
-          title="오늘의 쇼핑제안"
-          subtitle="지금 이 상품이 필요하신가요?"
-          products={dummyData.products.slice(4, 9)}
-        />
+          {/* 나머지 섹션 */}
+          <Section
+            title="오늘의 쇼핑제안"
+            subtitle="지금 이 상품이 필요하신가요?"
+            products={dummyData.products.slice(4, 9)}
+          />
 
-        {/* 오늘의 판매자 특가 섹션 */}
-        <Section
-          title="오늘의 판매자 특가"
-          subtitle="판매자들이 제안하는 놀라운 특가!"
-          products={dummyData.products.slice(8, 13)}
-        />
+          <Section
+            title="오늘의 판매자 특가"
+            subtitle="판매자들이 제안하는 놀라운 특가!"
+            products={dummyData.products.slice(8, 13)}
+          />
 
-        {/* 글로벌 특가 섹션 */}
-        <Section
-          title="전세계 핫딜 로켓직구 글로벌 특가"
-          subtitle="글로벌 트렌드 상품을 만나보세요."
-          products={dummyData.products.slice(12, 17)}
-        />
+          <Section
+            title="전세계 핫딜 로켓직구 글로벌 특가"
+            subtitle="글로벌 트렌드 상품을 만나보세요."
+            products={dummyData.products.slice(12, 17)}
+          />
 
-        {/* 카테고리별 섹션 */}
-        {categories.map((category, index) => (
-          <div key={index} id={`section-${index + 4}`} className="section">
-            <CategorySection
-              categoryName={category}
-              hotKeywords={["#태블릿PC", "#노트북", "#스마트워치", "#헤드셋"]}
-              products={dummyData.products.slice(0, 9)}
-            />
-          </div>
-        ))}
+          {/* 카테고리별 섹션 */}
+          {categories.map((category, index) => (
+            <div key={index} id={`section-${index + 4}`} className="section">
+              <CategorySection
+                categoryName={category}
+                hotKeywords={["#태블릿PC", "#노트북", "#스마트워치", "#헤드셋"]}
+                products={dummyData.products.slice(0, 9)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

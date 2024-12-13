@@ -1,17 +1,14 @@
 /* 카테고리 섹션 전체 */
 .category-section {
-  padding: 20px;
   margin: 0 auto;
   max-width: 1200px;
   background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* 카테고리 레이아웃 */
+/* 카테고리 컨테이너 */
 .category-container {
   display: flex;
   flex-direction: row; /* 좌측과 우측 레이아웃을 가로로 배치 */
@@ -56,7 +53,6 @@
   color: #555;
   text-decoration: none;
   border: 1px solid #ddd;
-  border-radius: 5px;
   padding: 5px 10px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -77,8 +73,7 @@
 .category-banner {
   width: 100%;
   height: 100%; /* 높이를 100%로 설정하여 이미지가 끝까지 차지하도록 설정 */
-  object-fit: cover; /* 이미지 비율 유지하며 크기 조정 */
-  border-radius: 5px;
+  object-fit: cover;
 }
 
 /* 오른쪽 상품 목록 */
@@ -92,72 +87,51 @@
 
 .product-card {
   background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex-basis: calc(33.33% - 20px); /* 한 줄에 3개씩 고정 */
-  height: 350px;
+  justify-content: flex-start;
+  flex-basis: calc(33.33% - 20px); /* 3열 배치 */
 }
 
 .product-img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 5px; /* 이미지와 텍스트 간 최소 간격 */
 }
 
 .product-name {
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 5px;
+  color: #333;
+  margin-bottom: 2px; /* 이름과 가격 간 최소 간격 */
 }
 
 .product-price {
-  font-size: 1.2rem;
-  color: #d0021b;
+  font-size: 1rem;
+  color: black; /* 가격을 검정색으로 설정 */
   font-weight: bold;
 }
 
-.product-original-price {
-  font-size: 0.9rem;
-  color: #999;
-  text-decoration: line-through;
-  margin-top: 5px;
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
 }
 
-/* 반응형 스타일 */
-@media screen and (max-width: 1200px) {
-  .products-grid {
-    justify-content: flex-start;
-  }
-
-  .product-card {
-    flex-basis: calc(48% - 20px); /* 2개씩 배치 */
-  }
+.pagination-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* 원형 점 */
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@media screen and (max-width: 768px) {
-  .products-grid {
-    justify-content: center;
-  }
-
-  .product-card {
-    flex-basis: 100%; /* 1개씩 배치 */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .product-card {
-    padding: 8px;
-  }
-
-  .category-banner {
-    height: 180px;
-  }
+.pagination-dot.active {
+  background-color: #0078ff; /* 활성화된 점 색상 */
 }

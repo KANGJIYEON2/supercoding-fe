@@ -102,7 +102,7 @@ const Header = () => {
               <span className="badge">0</span>
               <span className="icon-label">장바구니</span>
               <div className="dropdown-menu">
-                <p>장바구니에 담긴 상품이 없습니다.</p>
+                <Link to="/cart">장바구니에 담긴 상품이 없습니다.</Link>
               </div>
             </div>
           </div>

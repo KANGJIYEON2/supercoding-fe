@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CategorySection.style.css";
 
 const CategorySection = ({ categoryName, hotKeywords, products }) => {
+  const [page, setPage] = useState(1); // 현재 페이지 상태
+  const itemsPerPage = 6; // 페이지당 상품 수
+  const totalPages = Math.min(5, Math.ceil(products.length / itemsPerPage)); // 최대 5페이지 제한
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage); // 페이지 변경
+  };
+
+  const currentProducts = products.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
+
   return (
     <section className="category-section">
       <div className="category-container">
@@ -31,7 +44,7 @@ const CategorySection = ({ categoryName, hotKeywords, products }) => {
 
         {/* 오른쪽 상품 목록 */}
         <div className="products-grid">
-          {products.slice(0, 6).map((product, index) => (
+          {currentProducts.map((product, index) => (
             <div className="product-card" key={index}>
               <img
                 src={product.image}
@@ -43,6 +56,17 @@ const CategorySection = ({ categoryName, hotKeywords, products }) => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* 페이지네이션 */}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            className={`pagination-dot ${page === index + 1 ? "active" : ""}`}
+            onClick={() => handlePageChange(index + 1)}
+          ></button>
+        ))}
       </div>
     </section>
   );

@@ -2,9 +2,10 @@
 .section {
   padding: 20px;
   margin: 0 auto;
-  width: 100%; /* 전체 너비를 차지하도록 설정 */
-  max-width: 1200px; /* 최대 너비를 1200px로 설정 */
+  width: 100%;
+  max-width: 1200px;
   box-sizing: border-box;
+  background-color: #fff; /* 배경 흰색 */
 }
 
 /* 섹션 제목 */
@@ -27,107 +28,49 @@
 /* 상품 목록 */
 .section-products {
   display: flex;
-  flex-wrap: nowrap;
   gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* 상품 카드 */
 .product-card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   text-align: center;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
-  max-width: 220px;
-  height: 380px;
+  width: 250px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-color: #0078ff;
+  transform: scale(1.05); /* 호버 시 확대 효과 */
+  opacity: 1;
 }
 
+/* 상품 이미지 */
 .product-img {
   width: 100%;
-  height: 180px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
+/* 상품 이름 */
 .product-name {
   font-size: 1rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* 상품 가격 */
 .product-price {
   font-size: 1.2rem;
-  color: #d0021b;
+  color: #0078ff;
   font-weight: bold;
-}
-
-.product-original-price {
-  font-size: 0.9rem;
-  color: #999;
-  text-decoration: line-through;
-  margin-top: 5px;
-}
-
-/* React-slick styles */
-.slick-next,
-.slick-prev {
-  background-color: #0078ff;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.slick-next:hover,
-.slick-prev:hover {
-  background-color: #005bb5;
-}
-
-/* 반응형 추가 */
-@media screen and (max-width: 1024px) {
-  .section-products {
-    grid-template-columns: repeat(3, 1fr); /* 3열 */
-  }
-
-  .product-card {
-    max-width: 300px;
-    height: 400px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .section-products {
-    grid-template-columns: repeat(2, 1fr); /* 2열 */
-  }
-
-  .product-card {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .section-products {
-    grid-template-columns: 1fr; /* 1열 */
-  }
-
-  .product-card {
-    max-width: 100%; /* 모바일에서는 카드 너비를 100%로 */
-  }
 }
