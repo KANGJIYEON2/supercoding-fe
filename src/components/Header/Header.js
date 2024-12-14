@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.style.css";
 
@@ -32,8 +31,9 @@ const Header = () => {
             </div>
           </div>
           <div className="header-top-right">
-            <span>로그인</span>
-            <span>회원가입</span>
+            {/* 로그인과 회원가입 클릭 시 경로 이동 */}
+            <span onClick={() => navigate("/login")}>로그인</span>
+            <span onClick={() => navigate("/signup")}>회원가입</span>
             <div className="dropdown">
               <span className="dropdown-toggle">고객센터</span>
               <div className="dropdown-menu">

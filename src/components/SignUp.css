@@ -1,0 +1,373 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.signup-logo {
+  width: 200px;
+  height: 100px;
+  background-image: url("/public/Image/coupangLogo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 10px;
+  text-align: start;
+  font-size: small;
+}
+
+.signup-container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.signup-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  transition: margin-bottom 0.3s ease; /* 애니메이션 추가 */
+}
+
+/* 아이디(이메일) */
+.signup-email-container {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  border: 1px solid #ccc; /* 외부 경계선 추가 */
+  margin-top: 15px;
+}
+.signup-email-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #fff;
+  background-image: url("/public/Image/email-icon.png");
+  background-size: 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center; /* 아이콘 위치 */
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  cursor: pointer;
+  border: none; /* 경계선 제거 */
+  outline: none; /* 포커스 스타일 제거 */
+  width: 100%; /* 필요한 경우 너비 조정 */
+  height: 45px;
+}
+.signup-email-input::placeholder {
+  font-size: 13px; /* placeholder 텍스트 크기 */
+  font-weight: bold;
+  color: gray; /* 텍스트 색상 */
+}
+.email-input.error {
+  border-bottom: 1px solid red !important;
+  min-height: 20px; /* 에러 메시지 공간 확보 */
+  margin-top: 5px; /* 입력창과 메시지 간 간격 */
+}
+.email-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: red;
+  font-size: 12px;
+  top: 115%; /* 입력 박스 바로 아래로 이동 */
+  left: 3%; /* 입력 박스의 시작점에 정렬 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+
+/* 비밀번호 */
+.signup-password-container {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  border: 1px solid #ccc; /* 외부 경계선 추가 */
+  margin-top: 30px;
+}
+.signup-password-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #fff;
+  background-image: url("/public/Image/password-icon.png");
+  background-size: 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center; /* 아이콘 위치 */
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  cursor: pointer;
+  border: none; /* 경계선 제거 */
+  outline: none; /* 포커스 스타일 제거 */
+  width: 100%; /* 필요한 경우 너비 조정 */
+  height: 45px;
+}
+.signup-password-input::placeholder {
+  font-size: 13px; /* placeholder 텍스트 크기 */
+  font-weight: bold;
+  color: gray; /* 텍스트 색상 */
+}
+.signup-password-input.error {
+  border-bottom: 1px solid #0061f2 !important;
+  min-height: 20px; /* 에러 메시지 공간 확보 */
+  margin-top: 5px; /* 입력창과 메시지 간 간격 */
+}
+.signup-password-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: gray;
+  font-size: 12px;
+  top: 115%; /* 입력 박스 바로 아래로 이동 */
+  left: 3%; /* 입력 박스의 시작점에 정렬 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+.signup-password-error-message-list {
+  margin-top: 10px; /* 에러 메시지 사이 간격 */
+  padding-left: 20px; /* 에러 메시지 목록 왼쪽 여백 */
+  list-style-type: disc; /* 목록 점 표시 */
+}
+.signup-password-error-message-list li {
+  color: red;
+  font-size: 12px;
+}
+/* 비밀번호 확인 */
+.confirm-password-container {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  border: 1px solid #ccc; /* 외부 경계선 추가 */
+  margin-top: 60px;
+}
+.confirm-password-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #fff;
+  background-image: url("/public/Image/passwordcheck.png");
+  background-size: 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center; /* 아이콘 위치 */
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  cursor: pointer;
+  border: none; /* 경계선 제거 */
+  outline: none; /* 포커스 스타일 제거 */
+  width: 100%; /* 필요한 경우 너비 조정 */
+  height: 45px;
+}
+.confirm-password-input::placeholder {
+  font-size: 13px; /* placeholder 텍스트 크기 */
+  font-weight: bold;
+  color: gray; /* 텍스트 색상 */
+}
+.confirm-password-input.error {
+  border-bottom: 1px solid #0061f2 !important;
+  min-height: 20px; /* 에러 메시지 공간 확보 */
+  margin-top: 5px; /* 입력창과 메시지 간 간격 */
+}
+.confirm-password-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: gray;
+  font-size: 12px;
+  top: 115%; /* 입력 박스 바로 아래로 이동 */
+  left: 3%; /* 입력 박스의 시작점에 정렬 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+/* 이름 */
+.signup-username-container {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  border: 1px solid #ccc; /* 외부 경계선 추가 */
+  margin-top: 30px;
+}
+.signup-username-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #fff;
+  background-image: url("/public/Image/name.png");
+  background-size: 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center; /* 아이콘 위치 */
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  cursor: pointer;
+  border: none; /* 경계선 제거 */
+  outline: none; /* 포커스 스타일 제거 */
+  width: 100%; /* 필요한 경우 너비 조정 */
+  height: 45px;
+}
+.signup-username-input::placeholder {
+  font-size: 13px; /* placeholder 텍스트 크기 */
+  font-weight: bold;
+  color: gray; /* 텍스트 색상 */
+}
+.signup-username.error {
+  border-bottom: 1px solid red !important;
+  min-height: 20px; /* 에러 메시지 공간 확보 */
+  margin-top: 5px; /* 입력창과 메시지 간 간격 */
+}
+.signup-username-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: red;
+  font-size: 12px;
+  top: 115%; /* 입력 박스 바로 아래로 이동 */
+  left: 3%; /* 입력 박스의 시작점에 정렬 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+/* 휴대폰 번호 */
+.signup-phone-container {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  border: 1px solid #ccc; /* 외부 경계선 추가 */
+  margin-top: 30px;
+}
+.signup-phone-input {
+  display: flex;
+  position: relative;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #fff;
+  background-image: url("/public/Image/phone.png");
+  background-size: 20px; /* 아이콘 크기 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: 10px center; /* 아이콘 위치 */
+  padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+  cursor: pointer;
+  border: none; /* 경계선 제거 */
+  outline: none; /* 포커스 스타일 제거 */
+  width: 100%; /* 필요한 경우 너비 조정 */
+  height: 45px;
+}
+.signup-phone-input::placeholder {
+  font-size: 13px; /* placeholder 텍스트 크기 */
+  font-weight: bold;
+  color: gray; /* 텍스트 색상 */
+}
+.signup-phone.error {
+  border-bottom: 1px solid red !important;
+  min-height: 20px; /* 에러 메시지 공간 확보 */
+  margin-top: 5px; /* 입력창과 메시지 간 간격 */
+}
+.signup-phone-error-message {
+  position: absolute; /* 위치를 상대적으로 조정 */
+  color: red;
+  font-size: 12px;
+  top: 115%; /* 입력 박스 바로 아래로 이동 */
+  left: 3%; /* 입력 박스의 시작점에 정렬 */
+  pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
+}
+
+.signup-email-input:focus, .signup-password-input:focus, .confirm-password-input:focus,
+ .signup-username-input:focus, .signup-phone-input:focus {
+  border-bottom: 1px solid #0061f2;
+  outline: none;
+}
+
+.bar {
+  margin-top: 35px;
+  border-bottom: 0.05px solid gray;
+}
+
+/* 동의합니다 체크박스 */
+.agreement {
+  display: flex;
+  justify-content: flex-start; /* 체크박스를 왼쪽 정렬 */
+  align-items: center; /* 체크박스와 텍스트를 수직 가운데 정렬 */
+  vertical-align: middle; /* 텍스트와 체크박스 수직 정렬 */
+  margin-top: 30px; /* 간격을 추가 */
+  font-weight: bold;
+  font-size: small;
+  gap: 10px;
+}
+/* 동의합니다 밑에 문구 */
+.notification {
+  margin-left: 20px; /* 좌측 여백 추가 */
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: small;
+}
+/* 약간동의부분 */
+.essential-list {
+  display: flex;
+  flex-direction: column; /* 세로로 나열 */
+  justify-content: flex-start; /* 체크박스를 왼쪽 정렬 */
+  vertical-align: middle; /* 텍스트와 체크박스 수직 정렬 */
+  align-items: flex-start; /* 좌측 정렬 */
+  margin-top: 30px; /* 간격을 추가 */
+  padding: 20px;
+  border: 1px solid gray;
+  font-size: 14px;
+  gap: 15px;
+}
+.essential-list input[type="checkbox"] {
+  margin-right: 10px; /* 체크박스와 텍스트 사이에 간격 추가 */
+}
+.signup-essential-list {
+  display: flex; /* 세로로 나열하려면 flex를 사용 */
+  flex-direction: column; /* 세로로 나열 */
+  gap: 10px; /* 체크박스들 사이에 간격 추가 */
+  margin-left: 20px; /* 왼쪽에 간격 추가 */
+}
+/* 특정 항목에만 간격을 추가 */
+.essential-list .signup-essential-list input[type="checkbox"] {
+  margin-left: 0; /* 체크박스 왼쪽 간격 초기화 */
+}
+
+/* 동의하고 가입하기 버튼 */
+.agreement-signup-button {
+  margin: 30px auto;
+  padding: 15px 190px; /* 텍스트 주위 여백 */
+  border-radius: 4px;
+  background-color: #0061f2;
+  color: #e0e0e0;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: none;
+}
+.signup-container button:hover {
+  background-color: #0051c2;
+}
+
+/* 푸터부분 */
+.sign-business-link {
+  text-align: center;
+  font-size: 14px;
+}
+.signup-customer {
+  font-weight: normal;
+  font-size: small;
+  color: gray;
+}
+/* 쿠팡비즈 간편가입*/
+.signup-easy-signup {
+  font-size: small;
+  font-weight: bold;
+  padding-right: 15px;
+  margin: 10px 185px;
+  background-image: url("/public/Image/easysignuparrow.png"); /* 화살표 아이콘 경로 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: right; /* 이미지를 텍스트 옆으로 정렬 */
+  background-size: contain; /* 이미지를 컨테이너 크기에 맞게 조절 */
+}
+/* 푸터영어 - Coupang Corp. All rights reserved. */
+.signup-companyname-background {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: inline-block; /* 요소를 인라인으로 유지 */
+  padding-left: 9px; /* 이미지와 텍스트 간격 조정 */
+  font-weight: normal;
+  font-size: small;
+  color: gray;
+  background-image: url("/public/Image/company\ name.png"); /* 화살표 아이콘 경로 */
+  background-repeat: no-repeat; /* 아이콘 반복 방지 */
+  background-position: left; /* 이미지를 텍스트 옆으로 정렬 */
+  background-size: 9px; /* 이미지를 컨테이너 크기에 맞게 조절 */
+}
