@@ -6,6 +6,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  padding: 10px 20px;
 }
 
 .header-container {
@@ -89,11 +90,18 @@
   display: flex;
 }
 
+/* 검색창 스타일 */
 .search-input {
   flex: 1;
+  width: 600px;
+  max-width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px 0 0 4px;
+}
+.search-input:focus {
+  outline: none;
+  border-color: #0078ff;
 }
 
 .search-button {
@@ -103,6 +111,10 @@
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #005bb5;
 }
 
 /* 추가: 마이쿠팡 & 장바구니 아이콘 컨테이너 */
@@ -160,4 +172,35 @@
 
 .header-nav a:hover {
   text-decoration: underline;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 768px) {
+  .header-search {
+    flex-direction: column;
+  }
+
+  .search-input {
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 5px;
+  }
+
+  .search-button {
+    border-radius: 0 0 4px 4px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-top-left,
+  .header-top-right {
+    margin-bottom: 10px;
+  }
+
+  .header-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

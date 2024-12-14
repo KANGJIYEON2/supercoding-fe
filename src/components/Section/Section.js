@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Section.style.css";
 
-const Section = ({ title, subtitle, products }) => {
+const Section = ({ title, subtitle, products, onCardClick }) => {
   const [visibleProducts, setVisibleProducts] = useState(8); // 초기 표시 상품 개수
 
   // 스크롤 이벤트 핸들러
@@ -28,7 +28,11 @@ const Section = ({ title, subtitle, products }) => {
       <p className="section-subtitle">{subtitle}</p>
       <div className="section-products">
         {products.slice(0, visibleProducts).map((product, index) => (
-          <div className="product-card" key={index}>
+          <div
+            className="product-card"
+            key={index}
+            onClick={() => onCardClick(product.name)} // 클릭 이벤트 추가
+          >
             <img
               src={product.image}
               alt={product.name}
@@ -36,7 +40,7 @@ const Section = ({ title, subtitle, products }) => {
             />
             <div className="product-info">
               <p className="product-name">{product.name}</p>
-              <p className="product-price">무료배송</p>
+              <p className="product-price">{product.price}원</p>
               <p>⭐⭐⭐⭐⭐</p>
             </div>
           </div>

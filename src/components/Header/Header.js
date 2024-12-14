@@ -1,8 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.style.css";
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 관리
+  const navigate = useNavigate(); // 페이지 이동을 위한 Hook
+
+  const handleSearch = (e) => {
+    e.preventDefault(); // 폼 기본 동작 방지
+    if (searchTerm.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchTerm)}`); // 검색어를 쿼리 파라미터로 전달
+    }
+  };
+
   return (
     <header className="header">
       <div className="header-container">
@@ -58,12 +69,18 @@ const Header = () => {
           </Link>
 
           <div className="header-search">
-            <input
-              className="search-input"
-              type="text"
-              placeholder="찾고싶은 상품을 검색해보세요"
-            />
-            <button className="search-button">검색</button>
+            <form onSubmit={handleSearch}>
+              <input
+                className="search-input"
+                type="text"
+                placeholder="찾고싶은 상품을 검색해보세요"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)} // 검색어 입력
+              />
+              <button type="submit" className="search-button">
+                검색
+              </button>
+            </form>
           </div>
 
           <div className="header-icons">

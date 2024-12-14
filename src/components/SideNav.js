@@ -19,14 +19,14 @@ const SideNav = ({ categories }) => {
       });
 
       // 4번째 섹션부터 activeIndex를 설정
-      if (currentIndex >= 4) {
-        setActiveIndex(currentIndex - 4); // 4번째 섹션부터 인덱스 보정
+      if (currentIndex >= 3) {
+        setActiveIndex(currentIndex - 3); // 4번째 섹션부터 인덱스 보정
       } else {
         setActiveIndex(-1); // 4번째 섹션 이전에는 activeIndex를 초기화
       }
 
       // 4번째 섹션부터 사이드바 보이기
-      const firstSection = sections[4]; // 4번째 섹션
+      const firstSection = sections[3]; // 4번째 섹션
       if (firstSection) {
         const rect = firstSection.getBoundingClientRect();
         setIsVisible(rect.top <= window.innerHeight / 2);

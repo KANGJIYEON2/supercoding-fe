@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // React Router 사용
 import Section from "../components/Section/Section";
 import SideNav from "../components/SideNav";
 import dummyData from "../dummyData";
@@ -6,7 +7,8 @@ import "./Home.style.css";
 import CategorySection from "../components/CategorySection/CategorySection";
 
 const HomePage = () => {
-  const [hovered, setHovered] = useState(null); // hover 상태를 관리
+  const navigate = useNavigate(); // 네비게이트 함수 사용
+
   const categories = [
     "가전디지털",
     "여성패션",
@@ -28,6 +30,10 @@ const HomePage = () => {
     "여행",
   ];
 
+  const handleCardClick = (productName) => {
+    navigate(`/detail?name=${encodeURIComponent(productName)}`);
+  };
+
   return (
     <div className="home-page">
       {/* 사이드 네비게이션 */}
@@ -43,7 +49,7 @@ const HomePage = () => {
           />
         </section>
 
-        {/* 오늘의 발견 섹션 */}
+        {/* 오늘의 발견 섹션 (클릭 이벤트 없음) */}
         <div className="body-section">
           <section className="today-discovery">
             <div className="main-title">
@@ -56,12 +62,7 @@ const HomePage = () => {
             {/* 상품 그리드 */}
             <div className="discovery-grid">
               {dummyData.products.slice(0, 9).map((product, index) => (
-                <div
-                  className="discovery-card"
-                  key={index}
-                  onMouseEnter={() => setHovered(index)} // 호버 시 상태 변경
-                  onMouseLeave={() => setHovered(null)} // 호버 해제 시 초기화
-                >
+                <div className="discovery-card" key={index}>
                   <div className="discovery-img-container">
                     <h3 className="discovery-name">{product.name}</h3>
                     <img
@@ -71,34 +72,33 @@ const HomePage = () => {
                     />
                   </div>
                   <div className="discovery-buttons">
-                    {hovered === index ? (
-                      <button className="buy-button">구매하기</button>
-                    ) : (
-                      <button className="navigate-button">&gt;</button>
-                    )}
+                    <button className="navigate-button">&gt;</button>
                   </div>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* 나머지 섹션 */}
+          {/* 나머지 섹션 (클릭 이벤트 포함) */}
           <Section
             title="오늘의 쇼핑제안"
             subtitle="지금 이 상품이 필요하신가요?"
             products={dummyData.products.slice(4, 9)}
+            onCardClick={handleCardClick}
           />
 
           <Section
             title="오늘의 판매자 특가"
             subtitle="판매자들이 제안하는 놀라운 특가!"
             products={dummyData.products.slice(8, 13)}
+            onCardClick={handleCardClick}
           />
 
           <Section
             title="전세계 핫딜 로켓직구 글로벌 특가"
             subtitle="글로벌 트렌드 상품을 만나보세요."
             products={dummyData.products.slice(12, 17)}
+            onCardClick={handleCardClick}
           />
 
           {/* 카테고리별 섹션 */}
@@ -108,6 +108,7 @@ const HomePage = () => {
                 categoryName={category}
                 hotKeywords={["#태블릿PC", "#노트북", "#스마트워치", "#헤드셋"]}
                 products={dummyData.products.slice(0, 9)}
+                onCardClick={handleCardClick}
               />
             </div>
           ))}

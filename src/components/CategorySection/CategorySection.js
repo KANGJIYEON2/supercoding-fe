@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "./CategorySection.style.css";
 
-const CategorySection = ({ categoryName, hotKeywords, products }) => {
+const CategorySection = ({
+  categoryName,
+  hotKeywords,
+  products,
+  onCardClick,
+}) => {
   const [page, setPage] = useState(1); // 현재 페이지 상태
   const itemsPerPage = 6; // 페이지당 상품 수
   const totalPages = Math.min(5, Math.ceil(products.length / itemsPerPage)); // 최대 5페이지 제한
@@ -45,7 +50,11 @@ const CategorySection = ({ categoryName, hotKeywords, products }) => {
         {/* 오른쪽 상품 목록 */}
         <div className="products-grid">
           {currentProducts.map((product, index) => (
-            <div className="product-card" key={index}>
+            <div
+              className="product-card"
+              key={index}
+              onClick={() => onCardClick(product.name)} // 클릭 이벤트 추가
+            >
               <img
                 src={product.image}
                 alt={product.name}
