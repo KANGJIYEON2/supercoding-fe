@@ -1,0 +1,137 @@
+/* 카테고리 섹션 전체 */
+.category-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 카테고리 컨테이너 */
+.category-container {
+  display: flex;
+  flex-direction: row; /* 좌측과 우측 레이아웃을 가로로 배치 */
+  gap: 20px;
+  width: 100%; /* 너비 100% 설정 */
+  justify-content: space-between;
+}
+
+/* 왼쪽 정보 */
+.category-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.category-link {
+  font-size: 1rem;
+  color: #0078ff;
+  text-decoration: none;
+  margin-bottom: 15px; /* 바로가기와 키워드 사이의 간격 */
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
+
+.hot-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.keyword {
+  font-size: 0.85rem;
+  color: #555;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.keyword:hover {
+  background-color: #0078ff;
+  color: white;
+}
+
+/* 중간 이미지 */
+.category-image {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-banner {
+  width: 100%;
+  height: 100%; /* 높이를 100%로 설정하여 이미지가 끝까지 차지하도록 설정 */
+  object-fit: cover;
+}
+
+/* 오른쪽 상품 목록 */
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.product-card {
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-basis: calc(33.33% - 20px); /* 3열 배치 */
+}
+
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 5px; /* 이미지와 텍스트 간 최소 간격 */
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2px; /* 이름과 가격 간 최소 간격 */
+}
+
+.product-price {
+  font-size: 1rem;
+  color: black; /* 가격을 검정색으로 설정 */
+  font-weight: bold;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* 원형 점 */
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-dot.active {
+  background-color: #0078ff; /* 활성화된 점 색상 */
+}

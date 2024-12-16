@@ -1,0 +1,236 @@
+/* 전체 페이지 레이아웃 */
+.product-list-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f9f9f9;
+  max-width: 1200px;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 왼쪽 필터 섹션 */
+.product-list-page .filter-section {
+  width: 240px; /* 필터 너비 조정 */
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.product-list-page .filter-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-list-page .filter-group {
+  margin-bottom: 20px;
+}
+
+.product-list-page .filter-group-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-list-page .filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.product-list-page .filter-group input[type="checkbox"] {
+  accent-color: #0078ff;
+}
+
+/* 상품 목록 */
+.product-list-page .product-list {
+  flex: 1;
+}
+
+/* 상단 필터 바 */
+.product-list-page .filter-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.product-list-page .filter-options {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
+.product-list-page .filter {
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none; /* 테두리 제거 */
+}
+
+.product-list-page .filter.active {
+  font-weight: bold;
+  color: #0078ff; /* 활성화된 필터 파란색 */
+  border-bottom: 2px solid #0078ff;
+}
+
+.product-list-page .filter:hover {
+  color: #0078ff;
+}
+
+/* 상품 그리드 */
+.product-list-page .product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* 상품 카드 가운데 정렬 */
+}
+
+.product-list-page .product-card {
+  background: white;
+  border: 1px solid #ddd;
+  width: calc(25% - 20px); /* 카드 너비 조정 */
+  max-width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-list-page .product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-list-page .product-img {
+  width: 100%;
+  height: 180px; /* 이미지 높이 조정 */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product-list-page .product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-list-page .product-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.product-list-page .product-original-price {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.product-list-page .product-original-price del {
+  color: #999;
+  margin-left: 5px;
+}
+
+.product-list-page .product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff5722; /* 상품 가격 빨간색 */
+  margin-bottom: 8px;
+}
+
+.product-list-page .product-shipping {
+  font-size: 0.9rem;
+  color: #28a745;
+  margin-bottom: 5px;
+}
+
+.product-list-page .product-delivery {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.product-list-page .product-rating {
+  font-size: 0.8rem;
+  color: #fbc02d;
+  margin-bottom: 8px;
+}
+
+.product-list-page .product-reward {
+  font-size: 0.8rem;
+  color: #555;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+/* 페이지네이션 */
+.product-list-page .pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.product-list-page .pagination-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.product-list-page .pagination-btn.active {
+  background: #0078ff;
+  color: white;
+  border-color: #0078ff;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .product-list-page .product-card {
+    width: calc(33.33% - 20px); /* 3열 배치 */
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .product-list-page .product-card {
+    width: calc(50% - 20px); /* 2열 배치 */
+  }
+
+  .product-list-page .product-img {
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-list-page .product-card {
+    width: 100%; /* 1열 배치 */
+  }
+
+  .product-list-page .filter-options {
+    flex-wrap: wrap;
+  }
+}

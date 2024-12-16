@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const Layout = ({ children }) => {
   const location = useLocation();
