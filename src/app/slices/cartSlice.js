@@ -1,12 +1,16 @@
+// src/app/slices/cartSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [],
-    regularDeliveryItems: [],
+    activeTab: "일반구매",
   },
   reducers: {
+    setActiveTab: (state, action) => {
+      state.activeTab = action.payload;
+    },
     addItem: (state, action) => {
       state.items.push(action.payload);
     },
@@ -16,5 +20,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { setActiveTab, fetchCartItems } = cartSlice.actions;
 export default cartSlice.reducer;

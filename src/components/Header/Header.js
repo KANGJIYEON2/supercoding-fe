@@ -62,7 +62,7 @@ const Header = () => {
           </div>
           <Link to="/" className="header-logo">
             <img
-              src="https://i.namu.wiki/i/5XFJC8U_bqeyLVVTS5TScBqa6HzWJHAC2SuWFyV1Dp4dy1lmNfsc-fsZyWBDFQAWQz27tEy-M0MPf_Ao9zllnncZI-PcRF4M4L13AhcyAx68SC5gePfVO3oEz1QPX0IGzYL32L7Kgsqj44y6OD7Wvg.svg"
+              src="https://www.coupang.jobs/images/logo.svg"
               alt="쿠팡 로고"
               className="logo-img"
             />

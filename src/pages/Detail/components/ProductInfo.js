@@ -5,6 +5,21 @@ const ProductInfo = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(100);
   const [quantity, setQuantity] = useState(1);
 
+  const handleReviewClick = () => {
+    const reviewSection = document.getElementById("review-section");
+    if (reviewSection) {
+      const headerOffset = 60; // 탭 메뉴의 높이
+      const elementPosition = reviewSection.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const volumes = ["150ml", "300ml", "450ml", "500ml", "1L", "1.5L", "2L"];
 
   const volumeQuantities = {
@@ -87,8 +102,20 @@ const ProductInfo = () => {
 
       <div className="rating-wrap-h">
         <span className="rating-h">4.8</span>
-        <div className="stars-h">★★★★★</div>
-        <span className="review-count-h">92,644개 상품평</span>
+        <div
+          className="stars-h"
+          onClick={handleReviewClick}
+          style={{ cursor: "pointer" }}
+        >
+          ★★★★★
+        </div>
+        <span
+          className="review-count-h"
+          onClick={handleReviewClick}
+          style={{ cursor: "pointer" }}
+        >
+          92,644개 상품평
+        </span>
       </div>
 
       <div className="price-wrap-h">
@@ -154,9 +181,6 @@ const ProductInfo = () => {
                 {hasRocketDelivery && (
                   <span className="rocket-badge">로켓배송</span>
                 )}
-                {/* {stockWarning && (
-                  <span className="stock-warning">(재고 단위)</span>
-                )} */}
               </div>
             </label>
           )
@@ -183,15 +207,9 @@ const ProductInfo = () => {
               setQuantity(Math.max(1, parseInt(e.target.value) || 1))
             }
           />
-          <div className="quantity-control btn">
-            <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
-              -
-            </button>
-            <button onClick={() => setQuantity(quantity + 1)}>+</button>
-          </div>
         </div>
-        <button className="cart-button">장바구니 담기</button>
-        <button className="buy-button">바로구매 ></button>
+        <button className="d-cart-button">장바구니 담기</button>
+        <button className="d-buy-button">바로구매 ></button>
       </div>
 
       <div className="product-details">

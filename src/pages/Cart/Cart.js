@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import CartList from "./components/CartList";
 import EmptyCart from "./components/EmptyCart";
+import { fetchCartItems, setActiveTab } from "../../app/slices/cartSlice";
 import "./Cart.style.css";
+import CartSummary from "./components/CartSummary";
 
-const CartPage = () => {
-  const [activeTab, setActiveTab] = useState("일반구매");
+const Cart = () => {
   const navigate = useNavigate();
-  const [hasItems] = useState(false); // 장바구니 상품 유무 상태
+  const dispatch = useDispatch();
+  const { items, activeTab } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(fetchCartItems());
+  }, [dispatch]);
+
+  const regularItems = items.filter((item) => !item.isSubscription);
+  const subscriptionItems = items.filter((item) => item.isSubscription);
+
+  const hasItems = items.length > 0;
+
+  const handleTabChange = (tab) => {
+    dispatch(setActiveTab(tab));
+  };
 
   return (
     <div className="cart">
@@ -33,19 +49,26 @@ const CartPage = () => {
       <div className="tab-container">
         <button
           className={`tab ${activeTab === "일반구매" ? "active" : ""}`}
-          onClick={() => setActiveTab("일반구매")}
+          onClick={() => handleTabChange("일반구매")}
         >
-          일반구매(0)
+          일반구매({regularItems.length})
         </button>
         <button
           className={`tab ${activeTab === "정기배송" ? "active" : ""}`}
-          onClick={() => setActiveTab("정기배송")}
+          onClick={() => handleTabChange("정기배송")}
         >
-          정기배송(0)
+          정기배송({subscriptionItems.length})
         </button>
       </div>
-      {hasItems ? <CartList /> : <EmptyCart />}
+      {hasItems ? (
+        <CartList
+          items={activeTab === "일반구매" ? regularItems : subscriptionItems}
+        />
+      ) : (
+        <EmptyCart />
+      )}
     </div>
   );
 };
-export default CartPage;
+
+export default Cart;

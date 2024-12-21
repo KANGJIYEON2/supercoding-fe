@@ -22,7 +22,7 @@ const ProductImage = () => {
       </div>
       <div className="main-image">
         <img src={images[selectedImage]} alt="메인 이미지" />
-        <div className="quantity-badge">100개</div>
+        {/* <div className="quantity-badge">100개</div> */}
       </div>
     </div>
   );

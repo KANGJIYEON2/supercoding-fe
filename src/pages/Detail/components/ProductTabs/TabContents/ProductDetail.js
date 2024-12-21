@@ -1,4 +1,3 @@
-// pages/Detail/components/ProductTabs/TabContents/ProductDetail.js
 import React, { useState } from "react";
 
 const ProductDetail = () => {
@@ -36,9 +35,9 @@ const ProductDetail = () => {
 
       <div className={`product-detail-content ${isExpanded ? "expanded" : ""}`}>
         <div className="detail-images">
-          <img src="../img/detail1.jpg" alt="상세이미지1" />
-          <img src="../img/detail2.jpg" alt="상세이미지2" />
-          <img src="../img/detail3.jpg" alt="상세이미지3" />
+          <img src="../../detail1.jpg" alt="상세이미지1" />
+          <img src="../../detail2.jpg" alt="상세이미지2" />
+          <img src="../../detail3.jpg" alt="상세이미지3" />
         </div>
 
         {!isExpanded ? (
