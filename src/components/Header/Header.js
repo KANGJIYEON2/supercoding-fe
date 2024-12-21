@@ -44,7 +44,7 @@ const Header = () => {
                 <Link to="/returns">취소 / 반품안내</Link>
               </div>
             </div>
-            <span>판매자가입</span>
+            <span onClick={() => navigate("/seller-signup")}>판매자 가입</span>
           </div>
         </div>
 

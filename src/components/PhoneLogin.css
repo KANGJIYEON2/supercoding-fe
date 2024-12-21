@@ -1,0 +1,71 @@
+.phonelogin-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-top: 15px;
+}
+  
+.phonelogin-text {
+ font-size: small;
+ margin-bottom: 15px;
+ padding-right: 85px;
+}
+  
+.phonelogin-input {
+ display: flex;
+ flex-direction: column;
+ width: 350px;
+ color: gray;
+}
+  
+.input-field {
+ padding: 10px;
+ font-size: 15px;
+ border: 1px solid gray;
+ border-radius: 5px;
+ padding: 10px 10px 10px 40px; /* 왼쪽 공간을 확보하여 이미지와 겹치지 않도록 */
+ background-image: url("/public/Image/phonelogin.svg");
+ background-size: 15px; /* 아이콘 크기 */
+ background-repeat: no-repeat; /* 아이콘 반복 방지 */
+ background-position: 10px center; /* 아이콘 위치 */
+ cursor: pointer;
+}
+.input-field.error {
+ border: 1px solid red;
+ background-image: url("/public/Image/phoneloginerrorred.svg");
+ filter: none;
+}
+
+.phonelogin-error-message {
+ margin-top: 5px;
+ font-size: 10px;
+ text-align: left;
+ background-image: url("/public/Image/phoneloginerror.svg");
+ background-size: 10px; /* 아이콘 크기 */
+ background-repeat: no-repeat; /* 아이콘 반복 방지 */
+ background-position: 10px center; /* 아이콘 위치 */
+}
+  
+.phonelogin-error-message {
+ color: red;
+ margin-top: 5px;
+ font-size: 10px;
+ text-align: left;
+ padding: 1px 25px;
+}
+
+.phonelogin-login-btn {
+ margin: 0 auto;
+ width: 350px;
+ height: 40px;
+ border-radius: 4px;
+ background-color: #0061f2;
+ color: #e0e0e0;
+ font-weight: bold;
+ font-size: 14px;
+ cursor: pointer;
+ border-bottom: none;
+ margin-top: 10px;
+ border: none;
+}
+  

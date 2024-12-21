@@ -4,14 +4,18 @@ import "./TopBar.css";
 
 const TopBar = () => {
   const [showTopBar, setShowTopBar] = useState(true); // 초기 상태를 true로 설정
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setShowTopBar(false); // 로그인 클릭 시 TopBar 숨기기
   };
 
-  const navigate = useNavigate();
   const handleSignUpClick = () => {
     navigate("/signup");
+  };
+
+  const handleSellerSignupClick = () => {
+    navigate("/seller-signup");
   };
 
   return (
@@ -22,14 +26,10 @@ const TopBar = () => {
           <Link to="/"><button>입점신청</button></Link>
         </div>
         <div className="topbar-right">
-          <Link to="/login">
-            <button onClick={handleLoginClick}>로그인</button>
-          </Link>
-          <Link to="/signup">
-            <button onClick={handleSignUpClick}>회원가입</button>
-          </Link>
-          <Link to="/customer-service"><button>고객센터</button></Link>
-          <Link to="/seller-signup"><button>판매자 가입</button></Link>
+          <button onClick={handleLoginClick}>로그인</button>
+          <button onClick={handleSignUpClick}>회원가입</button>
+          <button onClick={() => navigate("/customer-service")}>고객센터</button>
+          <button onClick={handleSellerSignupClick}>판매자 가입</button>
         </div>
       </div>
     )

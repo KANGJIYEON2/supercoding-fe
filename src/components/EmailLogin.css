@@ -8,14 +8,17 @@
   margin-bottom: 10px;
   text-decoration: none;
 }
+.emaillogin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
 /* 아이디(이메일) */
 .emaillogin-id-input {
   display: flex;
-  position: relative;
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
-  margin-bottom: 10px;
-  outline: none;
+  flex-direction: column;
+  width: 350px;
 }
 .emaillogin-id {
   width: 350px;
@@ -34,22 +37,21 @@
   background-position: 10px center, 320px center; /* 아이콘 위치 */
   cursor: pointer;
 }
+.emaillogin-error{
+  border-color: red;
+}
 .emaillogin-error-message {
-  position: absolute; /* 위치를 상대적으로 조정 */
   color: red;
   font-size: 12px;
   top: 110%; /* 입력 박스 바로 아래로 이동 */
-  margin-right: 10%;
+  text-align: left;
   pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
 }
 /* 비밀번호 */
 .emaillogin-password-input {
   display: flex;
-  position: relative;
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
-  margin-top: 10px;
-  outline: none;
+  flex-direction: column;
+  width: 350px;
 }
 .emaillogin-password {
   width: 350px;
@@ -68,16 +70,14 @@
   background-position: 10px center, 320px center; /* 아이콘 위치 */
   cursor: pointer;
 }
-.emaillogin-password-error-message.error {
-  border-bottom: 1px solid red !important;
-  margin-top: 10px; /* 입력창과 메시지 간 간격 */
+.emaillogin-password-error {
+  border-color: red;
 }
 .emaillogin-password-error-message {
-  position: absolute; /* 위치를 상대적으로 조정 */
   color: red;
   font-size: 12px;
   top: 110%; /* 입력 박스 바로 아래로 이동 */
-  margin-right: 12%;
+  text-align: left;
   pointer-events: none; /* 에러 메시지가 클릭되지 않도록 설정 */
 }
 
