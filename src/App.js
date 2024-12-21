@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Login from './Login';
 import SignUp from "./SignUp";
-import NaverLogin from "./components/NaverLogin";
 import Home from './Home'; 
 
 const App = () => {
@@ -33,7 +32,6 @@ const App = () => {
           path="/login"
           element={<Login setShowTopBar={setShowTopBar} />}
         />
-        <Route path="/NaverLogin" element={<NaverLogin />} />
       </Routes>
     </Router>
   );

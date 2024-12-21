@@ -27,6 +27,7 @@ const Header = () => {
                 <Link to="/travel-tickets">여행티켓</Link>
                 <Link to="/rocket-delivery">로켓배송</Link>
                 <Link to="/marketing">제휴마케팅</Link>
+                <Link to="/rocket-gross">로켓그로스</Link>
               </div>
             </div>
           </div>
@@ -40,7 +41,7 @@ const Header = () => {
                 <Link to="/faq">자주묻는 질문</Link>
                 <Link to="/support">1:1 채팅문의</Link>
                 <Link to="/feedback">고객의 소리</Link>
-                <Link to="/returns">취소/반품안내</Link>
+                <Link to="/returns">취소 / 반품안내</Link>
               </div>
             </div>
             <span>판매자가입</span>

@@ -324,13 +324,14 @@ h2 {
 /* 동의하고 가입하기 버튼 */
 .agreement-signup-button {
   margin: 30px auto;
-  padding: 15px 190px; /* 텍스트 주위 여백 */
+  padding: 15px 183px; /* 텍스트 주위 여백 */
   border-radius: 4px;
   background-color: #0061f2;
   color: #e0e0e0;
   font-weight: bold;
+  font-size: 15px;
   cursor: pointer;
-  border-bottom: none;
+  border: none;
 }
 .signup-container button:hover {
   background-color: #0051c2;
@@ -351,23 +352,23 @@ h2 {
   font-size: small;
   font-weight: bold;
   padding-right: 15px;
-  margin: 10px 185px;
+  margin: 10px 183px;
   background-image: url("/public/Image/easysignuparrow.png"); /* 화살표 아이콘 경로 */
   background-repeat: no-repeat; /* 아이콘 반복 방지 */
   background-position: right; /* 이미지를 텍스트 옆으로 정렬 */
-  background-size: contain; /* 이미지를 컨테이너 크기에 맞게 조절 */
+  background-size: 16px; /* 이미지를 컨테이너 크기에 맞게 조절 */
 }
 /* 푸터영어 - Coupang Corp. All rights reserved. */
 .signup-companyname-background {
   margin-top: 50px;
   margin-bottom: 30px;
   display: inline-block; /* 요소를 인라인으로 유지 */
-  padding-left: 9px; /* 이미지와 텍스트 간격 조정 */
+  padding-left: 8px; /* 이미지와 텍스트 간격 조정 */
   font-weight: normal;
-  font-size: small;
+  font-size: x-small;
   color: gray;
   background-image: url("/public/Image/company\ name.png"); /* 화살표 아이콘 경로 */
   background-repeat: no-repeat; /* 아이콘 반복 방지 */
   background-position: left; /* 이미지를 텍스트 옆으로 정렬 */
-  background-size: 9px; /* 이미지를 컨테이너 크기에 맞게 조절 */
+  background-size: 8px; /* 이미지를 컨테이너 크기에 맞게 조절 */
 }
